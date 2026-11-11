@@ -1,0 +1,23 @@
+.ho-barra { display: flex; justify-content: space-between; gap: 1rem; padding: 1.2rem var(--margem); border-bottom: 1px solid var(--linha); font-family: var(--sans); font-size: 0.9rem; }
+.ho-barra a { color: inherit; text-decoration: none; }
+.ho-barra a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.ho-cab { padding: clamp(3rem, 9vw, 7rem) var(--margem) clamp(2rem, 5vw, 4rem); }
+.ho-cab p { max-width: 34rem; margin: 2rem 0 0; color: var(--suave); }
+.ho-secao { display: grid; grid-template-columns: 11rem 1fr; gap: 2rem; padding: clamp(2.5rem, 6vw, 4.5rem) var(--margem); border-top: 1px solid var(--linha); }
+.ho-secao h2 { margin: 0; font-family: var(--sans); font-size: 0.95rem; font-weight: 500; color: var(--suave); }
+.passos { margin: 0; padding: 0; list-style: none; counter-reset: p; max-width: 40rem; }
+.passos li { counter-increment: p; display: grid; grid-template-columns: 3rem 1fr; padding: 1.2rem 0; border-top: 1px solid var(--linha); }
+.passos li:first-child { border-top: 0; padding-top: 0; }
+.passos li::before { content: counter(p, decimal-leading-zero); padding-top: 0.3em; font-family: var(--sans); font-size: 0.85rem; color: var(--suave); }
+.passos strong { display: block; margin-bottom: 0.3rem; font-family: var(--sans); font-size: 1.25rem; font-weight: 500; }
+.passos span { color: var(--suave); }
+.ho-tabela { width: 100%; max-width: 40rem; margin-top: 2rem; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem; }
+.ho-tabela th, .ho-tabela td { padding: 0.7rem 0; border-top: 1px solid var(--linha); text-align: left; }
+.ho-tabela th { font-weight: 500; color: var(--suave); }
+.galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; }
+.galeria-audio { display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: 1rem; }
+.galeria figure { margin: 0; }
+.galeria__foto { aspect-ratio: 3 / 2; background: rgba(230, 231, 227, 0.08); }
+.galeria img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.galeria figcaption { margin-top: 0.5rem; font-family: var(--sans); font-size: 0.85rem; color: var(--suave); }
+@media (max-width: 760px) { .ho-secao { grid-template-columns: 1fr; gap: 1.2rem; } }

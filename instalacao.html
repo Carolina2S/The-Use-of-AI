@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Use of Artificial Intelligence in the Creative Process</title>
+  <meta name="description" content="Interactive art installation about the use of artificial intelligence in music, photography and programming.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="modo-mau">
+
+  <header class="barra">
+    <a class="barra__titulo" href="index.html">The Use of AI in the Creative Process</a>
+    <button class="interruptor" id="interruptor" type="button" role="switch" aria-checked="false" aria-label="Switch between bad use and good use of AI">
+      <span class="interruptor__rotulo interruptor__rotulo--mau">Bad use</span>
+      <span class="interruptor__trilho" aria-hidden="true"><span class="interruptor__botao"></span></span>
+      <span class="interruptor__rotulo interruptor__rotulo--bom">Good use</span>
+    </button>
+  </header>
+
+  <!-- VIEW 1: BAD USE / AUTOPILOT -->
+  <div class="visao visao--mau" id="visao-mau">
+    <div class="mau__aura mau__aura--roxa" aria-hidden="true"></div>
+    <div class="mau__aura mau__aura--ciano" aria-hidden="true"></div>
+
+    <section class="mau__hero">
+      <span class="mau__selo">✨ Powered by Next-Generation AI</span>
+      <h1 class="mau__titulo">The quantum synergy between algorithms and the human soul to unlock creative infinity</h1>
+      <p class="mau__subtitulo">Revolutionise your creative ecosystem with a disruptive, scalable and holistic platform that turns ideas into transcendent experiences. In one click. Frictionless. Limitless.</p>
+      <div class="mau__botoes">
+        <a class="mau__botao mau__botao--principal" href="#mau-pilares">Start the Transformation</a>
+        <a class="mau__botao mau__botao--vidro" href="#mau-metricas">See the Future</a>
+      </div>
+    </section>
+
+    <section class="mau__seccao" id="mau-pilares">
+      <h2 class="mau__subtitulo-seccao">The 3 Pillars of the Creative Revolution</h2>
+      <div class="mau__cartoes">
+        <article class="mau__cartao mau__cartao--roxo">
+          <div class="mau__icone" aria-hidden="true">🎧</div>
+          <h3>Synthetic Music</h3>
+          <p>Neural sound waves that resonate with the cosmic frequency of your vision, generated in seconds and optimised for eternity.</p>
+        </article>
+        <article class="mau__cartao mau__cartao--ciano">
+          <div class="mau__icone" aria-hidden="true">📸</div>
+          <h3>Algorithmic Photography</h3>
+          <p>Hyperrealistic images that capture what never existed, raising visual perfection to a new dimension of possibility.</p>
+        </article>
+        <article class="mau__cartao mau__cartao--magenta">
+          <div class="mau__icone" aria-hidden="true">⚡</div>
+          <h3>Autonomous Code</h3>
+          <p>Software that writes, fixes and reinvents itself, freeing your potential to think big (or not at all).</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mau__seccao" id="mau-metricas">
+      <h2 class="mau__subtitulo-seccao">Results That Speak for Themselves</h2>
+      <div class="mau__metricas">
+        <div class="mau__metrica"><strong>99.8%</strong><span>Creative Efficiency</span></div>
+        <div class="mau__metrica"><strong>Zero</strong><span>Human Effort</span></div>
+        <div class="mau__metrica"><strong>10.000x</strong><span>More Disruptive Innovation</span></div>
+        <div class="mau__metrica"><strong>∞</strong><span>Synergies Unlocked</span></div>
+      </div>
+    </section>
+
+    <footer class="mau__rodape">
+      <nav class="mau__rodape-links" aria-label="Footer links">
+        <a href="#mau-pilares">About Us</a>
+        <a href="#mau-pilares">Solutions</a>
+        <a href="#mau-metricas">Partners</a>
+        <a href="#mau-metricas">Careers</a>
+        <a href="#mau-pilares">Privacy Policy</a>
+        <a href="#mau-pilares">Terms of Service</a>
+      </nav>
+      <p>© 2026 SynergyAI Technologies. All rights reserved. Powered by Synergy™.</p>
+    </footer>
+  </div>
+
+  <!-- VIEW 2: GOOD USE / AI AS A TOOL
+       Four sections. Each one has three designs (data-estilo 1, 2, 3) and the visitor switches between them. -->
+  <div class="visao visao--bom" id="visao-bom" hidden>
+
+    <!-- 01: AI as a tool -->
+    <section class="fer fer--cabeca" data-estilo="1" aria-labelledby="fer-1">
+      <div class="fer__barra">
+        <span class="fer__nome">01 · AI as a tool</span>
+        <div class="estilo" role="group" aria-label="Choose a look for this section">
+          <button type="button" data-escolha="1" aria-pressed="true">Soft</button>
+          <button type="button" data-escolha="2" aria-pressed="false">Editorial</button>
+          <button type="button" data-escolha="3" aria-pressed="false">Terminal</button>
+        </div>
+      </div>
+      <div class="fer__quadro">
+        <h1 class="fer__titulo fer__titulo--grande" id="fer-1"><span>AI</span> <span>as</span> <span>a</span> <span class="destaque">tool</span></h1>
+        <p class="cab__texto">Artificial intelligence is not a creator, but a highly responsive instrument waiting for human direction. While it accelerates your workflow and explores new possibilities, its raw output remains completely meaningless without your intent. True authorship belongs solely to the person who decides what is worth keeping.</p>
+      </div>
+    </section>
+
+    <!-- 02: Mastering the Tool -->
+    <section class="fer fer--passos" data-estilo="3" aria-labelledby="fer-2">
+      <div class="fer__barra">
+        <span class="fer__nome">02 · Mastering the Tool</span>
+        <div class="estilo" role="group" aria-label="Choose a look for this section">
+          <button type="button" data-escolha="1" aria-pressed="false">Soft</button>
+          <button type="button" data-escolha="2" aria-pressed="false">Editorial</button>
+          <button type="button" data-escolha="3" aria-pressed="true">Terminal</button>
+        </div>
+      </div>
+      <div class="fer__quadro">
+        <h2 class="fer__titulo" id="fer-2">Mastering the Tool</h2>
+        <ol class="pas__lista">
+          <li class="pas__item">
+            <span class="pas__num">01</span>
+            <div class="pas__corpo">
+              <h3 class="pas__nome">Set your intention</h3>
+              <p>Before opening the tool, know what you want to build. The machine needs a human blueprint; without your initial vision, it only generates noise.</p>
+            </div>
+          </li>
+          <li class="pas__item">
+            <span class="pas__num">02</span>
+            <div class="pas__corpo">
+              <h3 class="pas__nome">Start a dialogue</h3>
+              <p>Don’t just ask for a finished product. Use the AI to test hypotheses, brainstorm different approaches, or explain complex technical concepts.</p>
+            </div>
+          </li>
+          <li class="pas__item">
+            <span class="pas__num">03</span>
+            <div class="pas__corpo">
+              <h3 class="pas__nome">Deconstruct the output</h3>
+              <p>Never accept the first answer. Break down the generated material, identify its structural flaws, and look for unexpected “happy accidents”.</p>
+            </div>
+          </li>
+          <li class="pas__item">
+            <span class="pas__num">04</span>
+            <div class="pas__corpo">
+              <h3 class="pas__nome">Curate relentlessly</h3>
+              <p>The true creative act is knowing what to discard. Cut the generic parts and refine the details until you can fully claim authorship of the result.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 03: Three stations, one method -->
+    <section class="fer fer--postos" data-estilo="2" aria-labelledby="fer-3">
+      <div class="fer__barra">
+        <span class="fer__nome">03 · Three stations</span>
+        <div class="estilo" role="group" aria-label="Choose a look for this section">
+          <button type="button" data-escolha="1" aria-pressed="false">Soft</button>
+          <button type="button" data-escolha="2" aria-pressed="true">Editorial</button>
+          <button type="button" data-escolha="3" aria-pressed="false">Terminal</button>
+        </div>
+      </div>
+      <div class="fer__quadro">
+        <h2 class="fer__titulo" id="fer-3">Three stations.<br>One method.</h2>
+        <p class="pos__intro">The same four steps, applied at each computer in the semicircle.</p>
+        <ul class="pos__lista">
+          <li class="pos__item">
+            <span class="pos__num">01</span>
+            <h3 class="pos__nome">Sound</h3>
+            <p class="pos__texto">Generate a hundred textures, then listen like an editor. Keep the one fragment with character and let the rest fall silent.</p>
+            <p class="pos__etiquetas">Texture · Rhythm · Silence</p>
+          </li>
+          <li class="pos__item">
+            <span class="pos__num">02</span>
+            <h3 class="pos__nome">Image</h3>
+            <p class="pos__texto">Start from a real place and a real light. Let the machine propose variations, then frame what it would never have risked.</p>
+            <p class="pos__etiquetas">Light · Frame · Place</p>
+          </li>
+          <li class="pos__item">
+            <span class="pos__num">03</span>
+            <h3 class="pos__nome">Code</h3>
+            <p class="pos__texto">Ask for a structure, then ask why. Read every line and rewrite what you can’t explain until it answers to your blueprint.</p>
+            <p class="pos__etiquetas">Structure · Logic · Syntax</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04: The machine proposes, you decide -->
+    <section class="fer fer--pares" data-estilo="3" aria-labelledby="fer-4">
+      <div class="fer__barra">
+        <span class="fer__nome">04 · Who does what</span>
+        <div class="estilo" role="group" aria-label="Choose a look for this section">
+          <button type="button" data-escolha="1" aria-pressed="false">Soft</button>
+          <button type="button" data-escolha="2" aria-pressed="false">Editorial</button>
+          <button type="button" data-escolha="3" aria-pressed="true">Terminal</button>
+        </div>
+      </div>
+      <div class="fer__quadro">
+        <h2 class="fer__titulo" id="fer-4">The machine proposes.<br>You decide.</h2>
+        <ul class="par__lista">
+          <li class="par__linha">
+            <p class="par__maq"><span class="par__quem">The machine</span>Generates in seconds.</p>
+            <p class="par__tu"><span class="par__quem">You</span>Decide what deserves minutes.</p>
+          </li>
+          <li class="par__linha">
+            <p class="par__maq"><span class="par__quem">The machine</span>Offers the average of everything.</p>
+            <p class="par__tu"><span class="par__quem">You</span>Choose the exception.</p>
+          </li>
+          <li class="par__linha">
+            <p class="par__maq"><span class="par__quem">The machine</span>Answers every question.</p>
+            <p class="par__tu"><span class="par__quem">You</span>Ask the right one.</p>
+          </li>
+          <li class="par__linha">
+            <p class="par__maq"><span class="par__quem">The machine</span>Never tires of options.</p>
+            <p class="par__tu"><span class="par__quem">You</span>Know when to stop.</p>
+          </li>
+        </ul>
+        <p class="par__fecho">Authorship is what remains after you decide.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

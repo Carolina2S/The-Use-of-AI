@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The use of artificial intelligence in the creative process</title>
+  <meta name="description" content="Interactive installation with three computers in a semicircle: sound, image and code.">
+  <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+
+  <header class="abertura">
+    <h1 class="titulo">The use of artificial intelligence in the creative process</h1>
+    <p class="abertura__nota">A web experience about music, photography and programming, and most importantly about how you work with a machine that answers everything.</p>
+  </header>
+
+  <main>
+    <section class="sala" aria-labelledby="sala-titulo">
+      <h2 id="sala-titulo" class="sala__titulo">One machine, three goals.<br>How would you do it?</h2>
+      <p class="sala__texto">Three screens, one tireless machine. Sound, image, and code each stage the same quiet confrontation between two ways of working. Pick a screen below, watch what happens, then choose which way to follow.</p>
+    </section>
+
+    <!-- ============================================================
+         The screen: menu (3 areas) -> area video -> good vs bad use
+         -> use video -> back to the menu.
+         All the behaviour lives in inicio.js.
+         ============================================================ -->
+    <section class="palco" aria-label="Interactive screen">
+      <span class="ancora" id="music"></span>
+      <span class="ancora" id="photography"></span>
+      <span class="ancora" id="development"></span>
+
+      <div class="ecra" id="ecra">
+
+        <div class="grupo grupo--visivel" id="grupo-areas" role="group" aria-label="Choose an area">
+          <button class="painel" type="button" data-area="music">
+            <span class="painel__nome">Music</span>
+          </button>
+          <button class="painel" type="button" data-area="photography">
+            <span class="painel__nome">Photography</span>
+          </button>
+          <button class="painel" type="button" data-area="development">
+            <span class="painel__nome">Development</span>
+          </button>
+        </div>
+
+        <div class="grupo" id="grupo-uso" role="group" aria-label="Choose how to use the AI">
+          <button class="painel" type="button" data-uso="bom">
+            <span class="painel__nome">Good use</span>
+            <span class="painel__nota">AI as a tool</span>
+          </button>
+          <button class="painel" type="button" data-uso="mau">
+            <span class="painel__nome">Bad use</span>
+            <span class="painel__nota">AI on autopilot</span>
+          </button>
+        </div>
+
+        <div class="ecra__video" id="camada-video">
+          <video id="video" playsinline preload="auto"></video>
+          <p class="ecra__aviso" id="aviso" hidden></p>
+        </div>
+
+        <div class="ecra__controlos" id="controlos">
+          <button class="controlo" type="button" id="btn-voltar" hidden>Back to menu</button>
+          <button class="controlo" type="button" id="btn-ecra-cheio" aria-pressed="false">Full screen</button>
+        </div>
+      </div>
+
+      <!-- Texts under the screen: only the one for the playing video is shown -->
+      <div class="legendas" id="legendas" aria-live="polite">
+
+        <article class="legenda" data-area="music" data-fase="intro" hidden>
+          <h3 class="legenda__titulo">Music</h3>
+          <div class="legenda__corpo">
+            <p>Anyone can ask a machine for a finished track and accept the wall of noise it generates in seconds. Real creative control means deciding the texture, the dynamic shifts, and the space between the notes before a single frequency plays. You bring the intent, the silence, and the ear; the AI merely generates the raw audio.</p>
+          </div>
+        </article>
+        <article class="legenda" data-area="music" data-fase="bom" hidden>
+          <h3 class="legenda__titulo">Music, as a tool</h3>
+          <div class="legenda__corpo">
+            <p>You start with an intention: a tempo, a texture, a silence worth keeping. The AI offers material, and you listen, discard and rearrange. Every note that stays is there because you chose it.</p>
+          </div>
+        </article>
+        <article class="legenda" data-area="music" data-fase="mau" hidden>
+          <h3 class="legenda__titulo">Music, on autopilot</h3>
+          <div class="legenda__corpo">
+            <p>One prompt, one finished track. It sounds like music, but nobody decided anything. A wall of competent noise, delivered in seconds and forgotten just as fast.</p>
+          </div>
+        </article>
+
+        <article class="legenda" data-area="photography" data-fase="intro" hidden>
+          <h3 class="legenda__titulo">Photography</h3>
+          <div class="legenda__corpo">
+            <p>Anyone can ask a machine for a polished image and accept the first synthetic composition it renders. Real creative control means deciding the light, the point of view, and what to keep outside the frame before the shutter even clicks. You bring the eye, the patience, and the tension; the AI merely fills the canvas.</p>
+          </div>
+        </article>
+        <article class="legenda" data-area="photography" data-fase="bom" hidden>
+          <h3 class="legenda__titulo">Photography, as a tool</h3>
+          <div class="legenda__corpo">
+            <p>You decide the light, the frame and how long to wait. The machine helps with what you could not do alone, and the picture is still yours because you were there when it happened.</p>
+          </div>
+        </article>
+        <article class="legenda" data-area="photography" data-fase="mau" hidden>
+          <h3 class="legenda__titulo">Photography, on autopilot</h3>
+          <div class="legenda__corpo">
+            <p>A prompt and a polished image: perfect sky, perfect skin, no place and no one behind it. It looks like a photograph, but nobody was there.</p>
+          </div>
+        </article>
+
+        <article class="legenda" data-area="development" data-fase="intro" hidden>
+          <h3 class="legenda__titulo">Development</h3>
+          <div class="legenda__corpo">
+            <p>Anyone can ask a machine for a full website and accept the first generic layout it delivers. Real creative control means deciding the structure, the visual hierarchy, and the emotional pacing before a single line is written. You bring the blueprint; the AI merely writes the syntax.</p>
+          </div>
+        </article>
+        <article class="legenda" data-area="development" data-fase="bom" hidden>
+          <h3 class="legenda__titulo">Development, as a tool</h3>
+          <div class="legenda__corpo">
+            <p>You sketch the structure, the hierarchy and the pacing first. The AI writes the syntax you ask for, and you read every line before it stays.</p>
+          </div>
+        </article>
+        <article class="legenda" data-area="development" data-fase="mau" hidden>
+          <h3 class="legenda__titulo">Development, on autopilot</h3>
+          <div class="legenda__corpo">
+            <p>"Make me a website." The first layout arrives in seconds, generic and unexplained. It runs, but nobody can say why it looks the way it does.</p>
+          </div>
+        </article>
+
+        <!-- Hands-on choice: inserted by inicio.js into every text above -->
+      </div>
+    </section>
+
+    <section class="decisao" id="decisao" aria-labelledby="decisao-titulo">
+      <div class="decisao__cabeca">
+        <h2 id="decisao-titulo" class="decisao__titulo">Everything is up to you.</h2>
+        <p>The tool is the same in both cases. What changes is your role you take.</p>
+      </div>
+
+      <ul class="escolhas">
+        <li>
+          <a class="escolha" href="#decisao" data-modo="ferramenta">
+            <span class="escolha__nome">Use AI as a tool</span>
+            <span class="escolha__texto">You have an idea, a taste and a judgement. It helps you get there.</span>
+          </a>
+        </li>
+        <li>
+          <a class="escolha" href="#decisao" data-modo="operador">
+            <span class="escolha__nome">Let the AI operate</span>
+            <span class="escolha__texto">You ask for everything and accept whatever comes. Fast, effortless and authorless.</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <details class="bastidores">
+      <summary>See the real installation</summary>
+      <div class="bastidores__ecra">
+        <video src="videos/installation.mp4" controls playsinline preload="none" aria-label="Video of the real installation"></video>
+      </div>
+      <p>Three computers, one semicircle, and people standing in the middle.</p>
+    </details>
+  </main>
+
+  <footer class="rodape">
+    <p>Interactive installation, 2026.</p>
+  </footer>
+
+  <script src="inicio.js"></script>
+</body>
+</html>

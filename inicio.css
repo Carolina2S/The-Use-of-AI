@@ -1,0 +1,423 @@
+:root {
+  --papel: #17181b;
+  --tinta: #e6e7e3;
+  --suave: #5f6268;
+  --linha: rgba(230, 231, 227, 0.25);
+  --margem: clamp(1.25rem, 5vw, 4rem);
+  --sans: "Helvetica Neue", "Inter", "Segoe UI", Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: opacity 0.3s ease;
+}
+
+body.a-sair { opacity: 0; }
+
+:focus-visible { outline: 2px solid var(--tinta); outline-offset: 4px; }
+
+/* ---------- Opening ---------- */
+.abertura {
+  padding: clamp(3rem, 10vw, 8rem) var(--margem) clamp(3rem, 8vw, 6rem);
+}
+
+.titulo {
+  max-width: 14ch;
+  margin: 0;
+  font-family: var(--sans);
+  font-size: clamp(2.8rem, 10.5vw, 9rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.abertura__nota {
+  max-width: 30rem;
+  margin: 3rem 0 0 auto;
+  color: var(--suave);
+}
+
+/* ---------- Room intro ---------- */
+.sala {
+  padding: 0 var(--margem) clamp(3rem, 7vw, 5rem);
+}
+
+.sala__titulo {
+  margin: 0 0 1.5rem;
+  font-family: var(--sans);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.sala__texto { max-width: 38rem; margin: 0; }
+
+/* ---------- The screen ---------- */
+.palco {
+  --ecra-proporcao: 16 / 9;   /* change to 4 / 3 if your videos are 4:3 */
+  --altura-ecra: 78vh;        /* how tall the screen may be: raise it to make the screen bigger */
+  --largura-ecra: min(100%, calc(var(--altura-ecra) * 16 / 9));
+  --expandir: 0.7s;
+  --texto: #b9bbb7;
+  position: relative;
+  padding: 0 var(--margem) clamp(3rem, 7vw, 5rem);
+}
+
+.ancora { position: absolute; top: -2rem; }
+
+.ecra {
+  position: relative;
+  width: var(--largura-ecra);
+  aspect-ratio: var(--ecra-proporcao);
+  container-type: inline-size;   /* lets the titles scale with the screen (cqw units) */
+  margin: 0 auto;
+  border: 6px solid var(--tinta);
+  background: var(--papel);
+  overflow: hidden;
+  scroll-margin-top: 1rem;
+}
+
+/* Full screen: the screen fills the display, no frame */
+.ecra:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: auto;
+  border: 0;
+}
+.ecra:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: auto;
+  border: 0;
+}
+
+/* A group is a row of full-height panels sharing the screen */
+.grupo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+}
+
+.grupo--visivel {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0s;
+}
+
+.painel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.5rem, 2cqw, 2rem);
+  border: 0;
+  border-left: 1px solid var(--linha);
+  background: transparent;
+  color: var(--tinta);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  transition:
+    flex-grow var(--expandir) cubic-bezier(0.7, 0, 0.2, 1),
+    opacity 0.35s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.painel:first-child { border-left: 0; }
+
+.painel:hover,
+.painel:focus-visible {
+  background: var(--tinta);
+  color: var(--papel);
+  outline: none;
+}
+
+.painel:focus-visible { box-shadow: inset 0 0 0 4px var(--papel), inset 0 0 0 6px var(--tinta); }
+
+/* Titles: sized from the screen width, so they shrink and grow with it.
+   Three panels per row = narrower, so smaller; two panels = more room. */
+.painel__nome {
+  font-family: var(--sans);
+  font-size: clamp(1.1rem, 3.4vw, 3rem);           /* fallback */
+  font-size: 4.6cqw;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+#grupo-uso .painel__nome {
+  font-size: clamp(1.4rem, 5vw, 4.5rem);           /* fallback */
+  font-size: 7.5cqw;
+}
+
+/* The small line sits at the bottom, so the title stays exactly in the middle */
+.painel__nota {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(0.6rem, 2.5cqw, 2rem);
+  font-family: var(--sans);
+  font-size: clamp(0.7rem, 1.3vw, 1rem);           /* fallback */
+  font-size: clamp(0.7rem, 1.6cqw, 1.1rem);
+  opacity: 0.7;
+}
+
+/* The chosen panel takes the whole screen, the others close */
+.grupo.a-expandir .painel { pointer-events: none; }
+.grupo.a-expandir .painel:not(.painel--ativo) { flex-grow: 0; opacity: 0; }
+.grupo.a-expandir .painel--ativo { flex-grow: 100; }
+
+.sem-transicao, .sem-transicao * { transition: none !important; }
+
+/* Video layer */
+.ecra__video {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease, visibility 0s linear 0.45s;
+}
+
+.ecra--video .ecra__video {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.45s ease, visibility 0s;
+}
+
+.ecra__video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ecra__aviso {
+  position: absolute;
+  margin: 0;
+  padding: 0.6rem 1rem;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+}
+
+.ecra__controlos {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  z-index: 2;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ecra__controlos[hidden] { display: none; }
+
+.controlo {
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--tinta);
+  background: rgba(23, 24, 27, 0.75);
+  color: var(--tinta);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.controlo:hover, .controlo:focus-visible { background: var(--tinta); color: var(--papel); }
+
+/* ---------- Texts under the screen ---------- */
+.legendas {
+  width: var(--largura-ecra);
+  min-height: 16rem;
+  margin: 0 auto;
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.legenda {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: clamp(1rem, 4vw, 4rem);
+  align-items: start;
+  animation: legenda-entra 0.5s ease both;
+}
+
+.legenda[hidden] { display: none; }
+
+@keyframes legenda-entra {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.legenda__titulo {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.legenda__corpo p { margin: 0; max-width: 34rem; color: var(--texto); }
+
+/* ---------- Hands-on choice ---------- */
+.fazer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--linha);
+}
+
+.legenda__corpo .fazer__pergunta {
+  margin: 0 0 0.9rem;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--tinta);
+}
+
+.fazer__botao {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid var(--tinta);
+  background: var(--tinta);
+  color: var(--papel);
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.fazer__botao:hover, .fazer__botao:focus-visible {
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+/* ---------- Decision ---------- */
+.decisao {
+  padding-top: clamp(3rem, 8vw, 6rem);
+  border-top: 1px solid var(--tinta);
+}
+
+.decisao__cabeca {
+  padding: 0 var(--margem) clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.decisao__titulo {
+  max-width: 12ch;
+  margin: 0 0 1.5rem;
+  font-family: var(--sans);
+  font-size: clamp(2.4rem, 8vw, 6.5rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.decisao__cabeca p { max-width: 28rem; margin: 0; color: var(--suave); }
+
+.escolhas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--tinta);
+  border-bottom: 1px solid var(--tinta);
+}
+
+.escolhas li + li { border-left: 1px solid var(--tinta); }
+
+.escolha {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  height: 100%;
+  min-height: clamp(16rem, 32vw, 26rem);
+  padding: clamp(1.8rem, 4vw, 3rem) var(--margem);
+  color: var(--tinta);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.escolha:hover, .escolha:focus-visible {
+  background: var(--tinta);
+  color: var(--papel);
+  outline-offset: -6px;
+}
+
+.escolha:focus-visible { outline-color: var(--papel); }
+
+.escolha__nome {
+  font-family: var(--sans);
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.escolha__texto { max-width: 22rem; font-size: 1rem; line-height: 1.5; }
+
+/* ---------- Hands-on links and real installation (collapsed) ---------- */
+.bastidores { padding: 0 var(--margem); border-bottom: 1px solid var(--linha); }
+.bastidores summary { padding: 1.5rem 0; font-family: var(--sans); font-size: 0.95rem; cursor: pointer; list-style: none; }
+.bastidores summary::-webkit-details-marker { display: none; }
+.bastidores summary::after { content: " +"; }
+.bastidores[open] summary::after { content: " −"; }
+.bastidores__ecra { aspect-ratio: 16 / 9; background: #000; }
+.bastidores video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.bastidores p { margin: 1rem 0 2rem; color: var(--suave); }
+
+/* ---------- Footer ---------- */
+.rodape {
+  padding: 2rem var(--margem) 3rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--suave);
+}
+.rodape p { margin: 0; }
+
+/* ---------- Responsive and accessibility ---------- */
+@media (max-width: 760px) {
+  .palco { --ecra-proporcao: 4 / 3; }
+  .ecra, .legendas { width: 100%; }
+  .grupo { flex-direction: column; }
+  .painel { border-left: 0; border-top: 1px solid var(--linha); }
+  .painel:first-child { border-top: 0; }
+  .painel__nota { display: none; }
+  .painel__nome { font-size: 9cqw; }
+  #grupo-uso .painel__nome { font-size: 11cqw; }
+  .legenda { grid-template-columns: 1fr; gap: 0.8rem; }
+  .abertura__nota { margin-left: 0; }
+  .escolhas { grid-template-columns: 1fr; }
+  .escolhas li + li { border-left: 0; border-top: 1px solid var(--tinta); }
+  .escolha { min-height: 0; gap: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body, .escolha, .painel, .grupo, .ecra__video, .fazer__botao { transition: none; }
+  .legenda { animation: none; }
+}
