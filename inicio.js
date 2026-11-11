@@ -16,19 +16,19 @@
      ======================================================== */
   var VIDEOS = {
     music: {
-      intro: "videos/Music1.mp4",
-      bom: "videos/Music2.mp4",
-      mau: "videos/Music3.mp4"
+      intro: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Music1.mp4",
+      bom: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Music2.mp4",
+      mau: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Music3.mp4"
     },
     photography: {
-      intro: "videos/good_photography.mp4",
-      bom: "videos/good_photography.mp4",
+      intro: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/decision_photography.mp4",
+      bom: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/good_photography.mp4",
       mau: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/bad_photography.mp4"
     },
     development: {
-      intro: "videos/Prog1.mp4",
-      bom: "videos/Prog2.mp4",
-      mau: "videos/Prog3.mp4"
+      intro: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Prog1.mp4",
+      bom: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Prog2.mp4",
+      mau: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Prog3.mp4"
     }
   };
 
