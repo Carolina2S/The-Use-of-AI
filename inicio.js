@@ -21,9 +21,9 @@
       mau: "videos/Music3.mp4"
     },
     photography: {
-      intro: "https://drive.google.com/uc?export=view&id=1Y2jcHUKOMiR7ygdAEb08PJ3U_Fuzx1MX",
+      intro: "videos/good_photography.mp4",
       bom: "videos/good_photography.mp4",
-      mau: "videos/bad_photography.mp4"
+      mau: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/bad_photography.mp4"
     },
     development: {
       intro: "videos/Prog1.mp4",
