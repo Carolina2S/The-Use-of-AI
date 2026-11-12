@@ -21,9 +21,9 @@
       mau: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Music3.mp4"
     },
     photography: {
-      intro: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/decision_photography.mp4",
-      bom: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/good_photography.mp4",
-      mau: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/bad_photography.mp4"
+      intro: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Photo1.mp4",
+      bom: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Photo2.mp4",
+      mau: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Photo3.mp4"
     },
     development: {
       intro: "https://github.com/Carolina2S/The-Use-of-AI/releases/download/v1.2/Prog1.mp4",
